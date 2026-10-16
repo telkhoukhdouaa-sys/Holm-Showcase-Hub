@@ -18,10 +18,10 @@ export const Route = createFileRoute("/")({
 });
 
 const signatures = [
-  ...MENU.find((s) => s.id === "signature")!.items,
-  MENU.find((s) => s.id === "brunch")!.items[0],
-  MENU.find((s) => s.id === "desserts")!.items[0],
-];
+  ...(MENU.find((s) => s.id === "signature")?.items ?? []),
+  MENU.find((s) => s.id === "brunch")?.items[0],
+  MENU.find((s) => s.id === "desserts")?.items[0],
+].filter((i): i is NonNullable<typeof i> => Boolean(i));
 
 function Home() {
   return (
