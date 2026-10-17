@@ -44,12 +44,18 @@ function Home() {
             <p className="mt-8 text-xs text-muted-foreground">{HOLM.hours}</p>
           </div>
           <div className="md:col-span-7">
-            <div className="arch aspect-[4/5] md:aspect-[5/6]">
+            <div className="arch img-zoom float-slow aspect-[4/5] md:aspect-[5/6]">
               <img src={hero} alt="Warm sculptural café interior with clay walls and a wooden stick ceiling" className="h-full w-full object-cover" width={1600} height={1072} />
             </div>
           </div>
         </div>
       </section>
+
+      <div className="overflow-hidden border-y border-border py-5" aria-hidden>
+        <div className="marquee flex w-max gap-10 whitespace-nowrap font-serif text-3xl italic text-accent md:text-5xl">
+          {Array.from({ length: 2 }).flatMap((_, k) => ["Specialty coffee", "✦", "Brunch", "✦", "Desserts", "✦", "Pottery dates", "✦", "Blida", "✦"].map((w, i) => <span key={k + "-" + i}>{w}</span>))}
+        </div>
+      </div>
 
       {/* Intro */}
       <section className="reveal bg-card">
