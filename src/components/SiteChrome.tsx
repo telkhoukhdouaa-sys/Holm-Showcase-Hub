@@ -8,14 +8,41 @@ function ThemeToggle() {
     const next = !dark;
     setDark(next);
     document.documentElement.classList.toggle("dark", next);
-    try { localStorage.setItem("holm-theme", next ? "dark" : "light"); } catch {}
+    try {
+      localStorage.setItem("holm-theme", next ? "dark" : "light");
+    } catch {
+      // Ignore localStorage errors (e.g., in incognito mode)
+    }
   };
   return (
-    <button onClick={toggle} aria-label={dark ? "Switch to light mode" : "Switch to dark mode"} className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground transition hover:rotate-12 hover:bg-card">
+    <button
+      onClick={toggle}
+      aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+      className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground transition hover:rotate-12 hover:bg-card"
+    >
       {dark ? (
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+        >
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+        </svg>
       ) : (
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+        >
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+        </svg>
       )}
     </button>
   );
@@ -41,30 +68,62 @@ export function Header() {
         </Link>
         <nav className="hidden items-center gap-8 md:flex" aria-label="Main">
           {NAV.map((n) => (
-            <Link key={n.to} to={n.to} className="text-sm text-muted-foreground transition-colors hover:text-foreground" activeProps={{ className: "text-foreground" }}>
+            <Link
+              key={n.to}
+              to={n.to}
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              activeProps={{ className: "text-foreground" }}
+            >
               {n.label}
             </Link>
           ))}
           <ThemeToggle />
-          <Link to="/visit" className="btn-solid !min-h-10 !px-5">Plan a visit</Link>
+          <Link to="/visit" className="btn-solid !min-h-10 !px-5">
+            Plan a visit
+          </Link>
         </nav>
-        <div className="flex items-center gap-1 md:hidden"><ThemeToggle />
-        <button className="flex h-11 w-11 items-center justify-center md:hidden" aria-label="Open menu" aria-expanded={open} onClick={() => setOpen(!open)}>
-          <span className="relative block h-3 w-6">
-            <span className={`absolute left-0 top-0 h-px w-6 bg-foreground transition ${open ? "translate-y-1.5 rotate-45" : ""}`} />
-            <span className={`absolute bottom-0 left-0 h-px w-6 bg-foreground transition ${open ? "-translate-y-1.5 -rotate-45" : ""}`} />
-          </span>
-        </button>
+        <div className="flex items-center gap-1 md:hidden">
+          <ThemeToggle />
+          <button
+            className="flex h-11 w-11 items-center justify-center md:hidden"
+            aria-label="Open menu"
+            aria-expanded={open}
+            onClick={() => setOpen(!open)}
+          >
+            <span className="relative block h-3 w-6">
+              <span
+                className={`absolute left-0 top-0 h-px w-6 bg-foreground transition ${open ? "translate-y-1.5 rotate-45" : ""}`}
+              />
+              <span
+                className={`absolute bottom-0 left-0 h-px w-6 bg-foreground transition ${open ? "-translate-y-1.5 -rotate-45" : ""}`}
+              />
+            </span>
+          </button>
         </div>
       </div>
       {open && (
-        <nav className="border-t border-border/60 bg-background px-5 pb-8 pt-4 md:hidden" aria-label="Mobile">
+        <nav
+          className="border-t border-border/60 bg-background px-5 pb-8 pt-4 md:hidden"
+          aria-label="Mobile"
+        >
           {NAV.map((n) => (
-            <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className="block border-b border-border/60 py-4 font-serif text-3xl">
+            <Link
+              key={n.to}
+              to={n.to}
+              onClick={() => setOpen(false)}
+              className="block border-b border-border/60 py-4 font-serif text-3xl"
+            >
               {n.label}
             </Link>
           ))}
-          <a href={HOLM.instagram} target="_blank" rel="noreferrer" className="mt-6 block text-sm text-muted-foreground">{HOLM.instagramHandle}</a>
+          <a
+            href={HOLM.instagram}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-6 block text-sm text-muted-foreground"
+          >
+            {HOLM.instagramHandle}
+          </a>
         </nav>
       )}
     </header>
@@ -76,7 +135,14 @@ export function Footer() {
     <footer className="bg-espresso text-roast-foreground">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-4">
         <div className="md:col-span-2">
-          <img src={mark.url} alt="HOLM" className="h-14 w-auto" width={120} height={90} loading="lazy" />
+          <img
+            src={mark.url}
+            alt="HOLM"
+            className="h-14 w-auto"
+            width={120}
+            height={90}
+            loading="lazy"
+          />
           <p className="mt-5 font-serif text-3xl">Beyond Coffee &amp; Brunch.</p>
         </div>
         <div className="space-y-2 text-sm">
@@ -87,22 +153,45 @@ export function Footer() {
         <div className="space-y-2 text-sm">
           <p className="eyebrow text-sand">Explore</p>
           {NAV.map((n) => (
-            <Link key={n.to} to={n.to} className="block hover:text-background">{n.label}</Link>
+            <Link key={n.to} to={n.to} className="block hover:text-background">
+              {n.label}
+            </Link>
           ))}
-          <a href={HOLM.instagram} target="_blank" rel="noreferrer" className="block hover:text-background">Instagram</a>
+          <a
+            href={HOLM.instagram}
+            target="_blank"
+            rel="noreferrer"
+            className="block hover:text-background"
+          >
+            Instagram
+          </a>
         </div>
       </div>
-      <div className="border-t border-roast-foreground/10 py-5 text-center text-xs opacity-60">© {new Date().getFullYear()} HOLM</div>
+      <div className="border-t border-roast-foreground/10 py-5 text-center text-xs opacity-60">
+        © {new Date().getFullYear()} HOLM
+      </div>
     </footer>
   );
 }
 
-export function PageIntro({ eyebrow, title, children }: { eyebrow: string; title: string; children?: React.ReactNode }) {
+export function PageIntro({
+  eyebrow,
+  title,
+  children,
+}: {
+  eyebrow: string;
+  title: string;
+  children?: React.ReactNode;
+}) {
   return (
     <section className="mx-auto max-w-6xl px-5 pb-7 pt-8 md:pb-12 md:pt-24">
       <p className="eyebrow fade-up text-accent">{eyebrow}</p>
       <h1 className="fade-up mt-3 max-w-3xl text-3xl leading-[1.1] md:text-7xl">{title}</h1>
-      {children && <div className="fade-up mt-3 max-w-xl text-sm text-muted-foreground md:mt-6 md:text-base">{children}</div>}
+      {children && (
+        <div className="fade-up mt-3 max-w-xl text-sm text-muted-foreground md:mt-6 md:text-base">
+          {children}
+        </div>
+      )}
     </section>
   );
 }
