@@ -34,8 +34,8 @@ export function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5">
-        <Link to="/" className="flex items-center gap-3" aria-label="HOLM home">
+      <div className="mx-auto grid h-16 max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-5 md:flex md:justify-between">
+        <Link to="/" className="flex min-w-0 items-center gap-3" aria-label="HOLM home">
           <img src={mark.url} alt="" className="h-8 w-auto" width={60} height={45} />
           <span className="eyebrow text-foreground">Holm</span>
         </Link>
@@ -99,10 +99,10 @@ export function Footer() {
 
 export function PageIntro({ eyebrow, title, children }: { eyebrow: string; title: string; children?: React.ReactNode }) {
   return (
-    <section className="mx-auto max-w-6xl px-5 pb-12 pt-16 md:pt-24">
+    <section className="mx-auto max-w-6xl px-5 pb-7 pt-8 md:pb-12 md:pt-24">
       <p className="eyebrow fade-up text-accent">{eyebrow}</p>
-      <h1 className="fade-up mt-4 max-w-3xl text-5xl leading-[1.02] md:text-7xl">{title}</h1>
-      {children && <div className="fade-up mt-6 max-w-xl text-muted-foreground">{children}</div>}
+      <h1 className="fade-up mt-3 max-w-3xl text-3xl leading-[1.1] md:text-7xl">{title}</h1>
+      {children && <div className="fade-up mt-3 max-w-xl text-sm text-muted-foreground md:mt-6 md:text-base">{children}</div>}
     </section>
   );
 }
