@@ -18,7 +18,7 @@ function About() {
   return (
     <>
       <PageIntro eyebrow="About" title="Coffee & design." />
-      <section className="mx-auto grid max-w-6xl gap-16 px-5 pb-24 md:grid-cols-2 md:items-center">
+      <section className="reveal mx-auto grid max-w-6xl gap-16 px-5 pb-24 md:grid-cols-2 md:items-center">
         <div className="flex aspect-square items-center justify-center rounded-md bg-roast">
           <img src={mark.url} alt="HOLM logo" className="w-1/2" loading="lazy" width={400} height={300} />
         </div>
