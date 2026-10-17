@@ -2,6 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { PageIntro } from "@/components/SiteChrome";
 import { MENU, formatDA } from "@/lib/holm";
+import coffee from "@/assets/coffee.jpg";
+import desserts from "@/assets/desserts.jpg";
+import brunch from "@/assets/brunch.jpg";
+import drinks from "@/assets/drinks.jpg";
+
+const IMG: Record<string, string> = { classics: coffee, signature: coffee, iced: drinks, cocktails: drinks, brunch, desserts };
 
 export const Route = createFileRoute("/menu")({
   head: () => ({
@@ -40,12 +46,17 @@ function MenuPage() {
       </div>
       <div className="mx-auto grid max-w-6xl gap-x-16 gap-y-16 px-5 py-16 md:grid-cols-2">
         {sections.map((s) => (
-          <section key={s.id} aria-labelledby={s.id}>
-            <h2 id={s.id} className="text-4xl">{s.title}</h2>
+          <section key={active + s.id} aria-labelledby={s.id} className="fade-up">
+            <div className="img-zoom arch relative mb-6 aspect-[16/10]">
+              <img src={IMG[s.id]} alt="" className="h-full w-full object-cover" loading="lazy" width={1024} height={1280} />
+              <div className="absolute inset-0 bg-gradient-to-t from-espresso/70 to-transparent" />
+              <span className="absolute bottom-4 left-5 font-serif text-5xl italic text-roast-foreground">{s.title}</span>
+            </div>
+            <h2 id={s.id} className="sr-only">{s.title}</h2>
             {s.subtitle && <p className="eyebrow mt-2 text-accent">{s.subtitle}</p>}
             <ul className="mt-6">
               {s.items.map((i) => (
-                <li key={i.name} className="flex items-baseline gap-3 border-b border-border py-4">
+                <li key={i.name} className="group flex items-baseline gap-3 border-b border-border py-4 transition-colors hover:text-accent">
                   <span>
                     <span className="text-base font-medium">{i.name}</span>
                     {i.note && <span className="ml-2 text-xs text-accent">{i.note}</span>}

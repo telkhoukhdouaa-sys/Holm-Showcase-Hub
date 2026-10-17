@@ -3,9 +3,8 @@ export const HOLM = {
   instagram: "https://www.instagram.com/holm.dz_/",
   instagramHandle: "@holm.dz_",
   hours: "Every day · 10:00 – 21:00",
-  // TODO: replace with the verified address once confirmed by HOLM.
-  address: "Address shared on our Instagram (Location highlight)",
-  mapsUrl: "https://www.google.com/maps/search/HOLM+coffee+brunch+Algeria",
+  address: "HOLM Coffee Shop, Blida",
+  mapsUrl: "https://maps.app.goo.gl/WXqBFJdGCpCcJHho6",
   pottery: "Pottery sessions · every Thursday from 13:00",
 };
 

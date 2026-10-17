@@ -32,7 +32,7 @@ function Experience() {
       <div className="mx-auto max-w-6xl px-5">
         <img src={hero} alt="The HOLM space" className="aspect-[16/9] w-full rounded-md object-cover" width={1600} height={1072} />
       </div>
-      <section className="mx-auto grid max-w-6xl gap-px px-5 py-20 sm:grid-cols-2 md:grid-cols-4">
+      <section className="reveal mx-auto grid max-w-6xl gap-px px-5 py-20 sm:grid-cols-2 md:grid-cols-4">
         {moments.map((m, i) => (
           <div key={m.t} className="border-t border-border pt-6 md:pr-6">
             <p className="eyebrow text-accent">0{i + 1}</p>
@@ -41,7 +41,7 @@ function Experience() {
           </div>
         ))}
       </section>
-      <section className="bg-card">
+      <section className="reveal bg-card">
         <div className="mx-auto grid max-w-6xl gap-12 px-5 py-20 md:grid-cols-2 md:items-center">
           <div>
             <p className="eyebrow text-accent">Pottery date</p>

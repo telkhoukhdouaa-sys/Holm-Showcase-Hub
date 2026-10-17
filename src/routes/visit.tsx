@@ -24,7 +24,7 @@ function Visit() {
   return (
     <>
       <PageIntro eyebrow="Visit" title="See you at HOLM." />
-      <section className="mx-auto max-w-6xl px-5 pb-24">
+      <section className="reveal mx-auto max-w-6xl px-5 pb-24">
         <dl className="border-t border-border">
           {rows.map((r) => (
             <div key={r.k} className="grid gap-2 border-b border-border py-6 md:grid-cols-3">

@@ -44,15 +44,21 @@ function Home() {
             <p className="mt-8 text-xs text-muted-foreground">{HOLM.hours}</p>
           </div>
           <div className="md:col-span-7">
-            <div className="arch aspect-[4/5] md:aspect-[5/6]">
+            <div className="arch img-zoom float-slow aspect-[4/5] md:aspect-[5/6]">
               <img src={hero} alt="Warm sculptural café interior with clay walls and a wooden stick ceiling" className="h-full w-full object-cover" width={1600} height={1072} />
             </div>
           </div>
         </div>
       </section>
 
+      <div className="overflow-hidden border-y border-border py-5" aria-hidden>
+        <div className="marquee flex w-max gap-10 whitespace-nowrap font-serif text-3xl italic text-accent md:text-5xl">
+          {Array.from({ length: 2 }).flatMap((_, k) => ["Specialty coffee", "✦", "Brunch", "✦", "Desserts", "✦", "Pottery dates", "✦", "Blida", "✦"].map((w, i) => <span key={k + "-" + i}>{w}</span>))}
+        </div>
+      </div>
+
       {/* Intro */}
-      <section className="bg-card">
+      <section className="reveal bg-card">
         <div className="mx-auto max-w-4xl px-5 py-24 text-center">
           <p className="eyebrow text-accent">The idea</p>
           <p className="mt-6 font-serif text-3xl leading-snug md:text-5xl">
@@ -62,7 +68,7 @@ function Home() {
       </section>
 
       {/* Signatures */}
-      <section className="mx-auto max-w-6xl px-5 py-24">
+      <section className="reveal mx-auto max-w-6xl px-5 py-24">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <p className="eyebrow text-accent">Signatures</p>
@@ -88,7 +94,7 @@ function Home() {
       </section>
 
       {/* Beyond */}
-      <section className="bg-roast text-roast-foreground">
+      <section className="reveal bg-roast text-roast-foreground">
         <div className="mx-auto grid max-w-6xl gap-12 px-5 py-24 md:grid-cols-2 md:items-center">
           <img src={pottery} alt="Pottery wheel session at HOLM" className="arch aspect-[4/5] w-full object-cover" loading="lazy" width={1024} height={1280} />
           <div>
@@ -103,7 +109,7 @@ function Home() {
       </section>
 
       {/* Visit */}
-      <section className="mx-auto max-w-6xl px-5 py-24">
+      <section className="reveal mx-auto max-w-6xl px-5 py-24">
         <div className="grid gap-10 md:grid-cols-3">
           <div className="md:col-span-1">
             <p className="eyebrow text-accent">Visit HOLM</p>
