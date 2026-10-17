@@ -9,9 +9,16 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "HOLM — Beyond Coffee & Brunch" },
-      { name: "description", content: "Specialty coffee, brunch and slow afternoons in a sculptural, sun-warmed space. Open daily 10:00–21:00." },
+      {
+        name: "description",
+        content:
+          "Specialty coffee, brunch and slow afternoons in a sculptural, sun-warmed space. Open daily 10:00–21:00.",
+      },
       { property: "og:title", content: "HOLM — Beyond Coffee & Brunch" },
-      { property: "og:description", content: "Specialty coffee, brunch and slow afternoons in a sculptural, sun-warmed space." },
+      {
+        property: "og:description",
+        content: "Specialty coffee, brunch and slow afternoons in a sculptural, sun-warmed space.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -30,19 +37,32 @@ function Home() {
     <>
       {/* Hero */}
       <section className="home-cover relative">
-        <img src={hero} alt="Warm sculptural café interior with clay walls and a wooden stick ceiling" className="home-cover-image" width={1600} height={1072} />
+        <img
+          src={hero}
+          alt="Warm sculptural café interior with clay walls and a wooden stick ceiling"
+          className="home-cover-image"
+          width={1600}
+          height={1072}
+        />
         <div className="home-cover-shade" />
         <div className="relative mx-auto flex h-full max-w-6xl items-end px-5 py-8 md:px-10 md:py-16">
           <div className="home-cover-copy max-w-xl">
             <p className="eyebrow fade-up text-accent">Coffee · Brunch · Experiences</p>
             <h1 className="fade-up mt-3 text-5xl leading-none md:text-8xl">HOLM</h1>
-            <p className="fade-up mt-3 font-serif text-2xl md:text-4xl">Beyond Coffee &amp; Brunch.</p>
+            <p className="fade-up mt-3 font-serif text-2xl md:text-4xl">
+              Beyond Coffee &amp; Brunch.
+            </p>
             <p className="fade-up mt-4 max-w-sm text-sm md:text-base">
-              A place to gather, discover, and stay a little longer — between the first espresso and the last light.
+              A place to gather, discover, and stay a little longer — between the first espresso and
+              the last light.
             </p>
             <div className="fade-up mt-5 flex flex-wrap gap-2">
-              <Link to="/menu" className="btn-solid">Explore the menu</Link>
-              <Link to="/experience" className="btn-ghost">Discover HOLM</Link>
+              <Link to="/menu" className="btn-solid">
+                Explore the menu
+              </Link>
+              <Link to="/experience" className="btn-ghost">
+                Discover HOLM
+              </Link>
             </div>
             <p className="mt-5 text-xs">{HOLM.hours}</p>
           </div>
@@ -51,7 +71,20 @@ function Home() {
 
       <div className="overflow-hidden border-y border-border py-5" aria-hidden>
         <div className="marquee flex w-max gap-10 whitespace-nowrap font-serif text-3xl italic text-accent md:text-5xl">
-          {Array.from({ length: 2 }).flatMap((_, k) => ["Specialty coffee", "✦", "Brunch", "✦", "Desserts", "✦", "Pottery dates", "✦", "Blida", "✦"].map((w, i) => <span key={k + "-" + i}>{w}</span>))}
+          {Array.from({ length: 2 }).flatMap((_, k) =>
+            [
+              "Specialty coffee",
+              "✦",
+              "Brunch",
+              "✦",
+              "Desserts",
+              "✦",
+              "Pottery dates",
+              "✦",
+              "Blida",
+              "✦",
+            ].map((w, i) => <span key={k + "-" + i}>{w}</span>),
+          )}
         </div>
       </div>
 
@@ -60,7 +93,8 @@ function Home() {
         <div className="mx-auto max-w-4xl px-5 py-24 text-center">
           <p className="eyebrow text-accent">The idea</p>
           <p className="mt-6 font-serif text-3xl leading-snug md:text-5xl">
-            Clay walls, a ceiling of hand-placed wood, warm light and a good cup. HOLM is coffee and brunch — and everything that happens around the table.
+            Clay walls, a ceiling of hand-placed wood, warm light and a good cup. HOLM is coffee and
+            brunch — and everything that happens around the table.
           </p>
         </div>
       </section>
@@ -72,18 +106,39 @@ function Home() {
             <p className="eyebrow text-accent">Signatures</p>
             <h2 className="mt-3 text-4xl md:text-6xl">What people come back for</h2>
           </div>
-          <Link to="/menu" className="btn-ghost">Full menu</Link>
+          <Link to="/menu" className="btn-ghost">
+            Full menu
+          </Link>
         </div>
         <div className="mt-14 grid gap-12 md:grid-cols-12">
           <div className="grid grid-cols-2 gap-4 md:col-span-6">
-            <img src={brunch} alt="Avocado toast and matcha latte" className="arch aspect-[3/4] w-full object-cover" loading="lazy" width={1024} height={1280} />
-            <img src={drinks} alt="Iced cocktail and pistachio cheesecake" className="mt-12 aspect-[3/4] w-full rounded-md object-cover" loading="lazy" width={1024} height={1280} />
+            <img
+              src={brunch}
+              alt="Avocado toast and matcha latte"
+              className="arch aspect-[3/4] w-full object-cover"
+              loading="lazy"
+              width={1024}
+              height={1280}
+            />
+            <img
+              src={drinks}
+              alt="Iced cocktail and pistachio cheesecake"
+              className="mt-12 aspect-[3/4] w-full rounded-md object-cover"
+              loading="lazy"
+              width={1024}
+              height={1280}
+            />
           </div>
           <ul className="md:col-span-6 md:pl-8">
             {signatures.map((i) => (
-              <li key={i.name} className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-4 border-b border-border py-4">
+              <li
+                key={i.name}
+                className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-4 border-b border-border py-4"
+              >
                 <span className="min-w-0 font-serif text-xl md:text-3xl">{i.name}</span>
-                <span className="whitespace-nowrap text-sm tabular-nums text-muted-foreground">{formatDA(i.price)}</span>
+                <span className="whitespace-nowrap text-sm tabular-nums text-muted-foreground">
+                  {formatDA(i.price)}
+                </span>
               </li>
             ))}
           </ul>
@@ -93,14 +148,24 @@ function Home() {
       {/* Beyond */}
       <section className="reveal bg-roast text-roast-foreground">
         <div className="mx-auto grid max-w-6xl gap-12 px-5 py-24 md:grid-cols-2 md:items-center">
-          <img src={pottery} alt="Pottery wheel session at HOLM" className="arch aspect-[4/5] w-full object-cover" loading="lazy" width={1024} height={1280} />
+          <img
+            src={pottery}
+            alt="Pottery wheel session at HOLM"
+            className="arch aspect-[4/5] w-full object-cover"
+            loading="lazy"
+            width={1024}
+            height={1280}
+          />
           <div>
             <p className="eyebrow text-sand">Beyond the ordinary</p>
             <h2 className="mt-4 text-5xl leading-tight md:text-6xl">A pottery date, at a café.</h2>
             <p className="mt-6 max-w-md opacity-80">
-              Some afternoons the tables turn into a studio. Get your hands in the clay, then finish with a latte. {HOLM.pottery}.
+              Some afternoons the tables turn into a studio. Get your hands in the clay, then finish
+              with a latte. {HOLM.pottery}.
             </p>
-            <Link to="/experience" className="btn-ghost mt-8">See the experiences</Link>
+            <Link to="/experience" className="btn-ghost mt-8">
+              See the experiences
+            </Link>
           </div>
         </div>
       </section>
@@ -113,11 +178,21 @@ function Home() {
             <h2 className="mt-3 text-4xl md:text-5xl">Come as you are.</h2>
           </div>
           <dl className="grid gap-8 sm:grid-cols-2 md:col-span-2">
-            <div><dt className="eyebrow text-muted-foreground">Open</dt><dd className="mt-2 font-serif text-2xl">{HOLM.hours}</dd></div>
-            <div><dt className="eyebrow text-muted-foreground">Find us</dt><dd className="mt-2 font-serif text-2xl">{HOLM.address}</dd></div>
+            <div>
+              <dt className="eyebrow text-muted-foreground">Open</dt>
+              <dd className="mt-2 font-serif text-2xl">{HOLM.hours}</dd>
+            </div>
+            <div>
+              <dt className="eyebrow text-muted-foreground">Find us</dt>
+              <dd className="mt-2 font-serif text-2xl">{HOLM.address}</dd>
+            </div>
             <div className="flex flex-wrap gap-3 sm:col-span-2">
-              <a href={HOLM.mapsUrl} target="_blank" rel="noreferrer" className="btn-solid">Get directions</a>
-              <a href={HOLM.instagram} target="_blank" rel="noreferrer" className="btn-ghost">Message us on Instagram</a>
+              <a href={HOLM.mapsUrl} target="_blank" rel="noreferrer" className="btn-solid">
+                Get directions
+              </a>
+              <a href={HOLM.instagram} target="_blank" rel="noreferrer" className="btn-ghost">
+                Message us on Instagram
+              </a>
             </div>
           </dl>
         </div>
