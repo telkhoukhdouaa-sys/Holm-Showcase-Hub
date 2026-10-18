@@ -11,6 +11,8 @@ export const Route = createFileRoute("/experience")({
       { name: "description", content: "Pottery dates, slow brunches and a sculptural space designed for gathering. Discover what happens at HOLM." },
       { property: "og:title", content: "The Experience — HOLM" },
       { property: "og:description", content: "Pottery dates, slow brunches and a space designed for gathering." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Experience,
@@ -26,12 +28,12 @@ const moments = [
 function Experience() {
   return (
     <>
+      <div className="mx-auto max-w-6xl px-5 pt-5 md:pt-10">
+        <img src={hero} alt="The HOLM space" className="aspect-[16/9] w-full rounded-md object-cover" width={1600} height={1072} />
+      </div>
       <PageIntro eyebrow="The experience" title="Offline here hits different.">
         HOLM was built to slow you down: curved clay walls, warm light, plants and handmade objects.
       </PageIntro>
-      <div className="mx-auto max-w-6xl px-5">
-        <img src={hero} alt="The HOLM space" className="aspect-[16/9] w-full rounded-md object-cover" width={1600} height={1072} />
-      </div>
       <section className="reveal mx-auto grid max-w-6xl gap-px px-5 py-20 sm:grid-cols-2 md:grid-cols-4">
         {moments.map((m, i) => (
           <div key={m.t} className="border-t border-border pt-6 md:pr-6">
@@ -49,7 +51,7 @@ function Experience() {
             <p className="mt-5 max-w-md text-muted-foreground">{HOLM.pottery}. Places are limited — message us on Instagram to ask about the next session.</p>
             <a href={HOLM.instagram} target="_blank" rel="noreferrer" className="btn-solid mt-8">Ask about a session</a>
           </div>
-          <img src={pottery} alt="Pottery session" className="arch aspect-[4/5] w-full object-cover" loading="lazy" width={1024} height={1280} />
+          <img src={pottery} alt="Pottery session" className="order-first aspect-[4/3] w-full rounded-md object-cover md:order-last md:aspect-[4/5]" loading="lazy" width={1024} height={1280} />
         </div>
       </section>
     </>

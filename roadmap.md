@@ -1,4 +1,4 @@
 # Tasks
-- [ ] Make all pages fit phones with compact typography and photo-first introductions.
-- [ ] Identify and reuse the previous project's ordering experience.
+- [x] Make all pages fit phones with compact typography and photo-first introductions.
+- [x] Review previous projects (no existing order flow found); implement the chosen Instagram basket handoff.
 - [ ] Verify phone layouts and ordering flow.
