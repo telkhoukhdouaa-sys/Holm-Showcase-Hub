@@ -9,6 +9,8 @@ export const Route = createFileRoute("/visit")({
       { name: "description", content: "Opening hours, directions and how to reach HOLM. Open every day 10:00–21:00." },
       { property: "og:title", content: "Visit — HOLM Coffee & Brunch" },
       { property: "og:description", content: "Opening hours, directions and contact for HOLM." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Visit,

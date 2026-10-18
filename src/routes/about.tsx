@@ -9,6 +9,8 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "HOLM means dream. A café where coffee, design and gathering meet." },
       { property: "og:title", content: "About — HOLM" },
       { property: "og:description", content: "A café where coffee, design and gathering meet." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: About,
@@ -19,7 +21,7 @@ function About() {
     <>
       <PageIntro eyebrow="About" title="Coffee & design." />
       <section className="reveal mx-auto grid max-w-6xl gap-16 px-5 pb-24 md:grid-cols-2 md:items-center">
-        <div className="flex aspect-square items-center justify-center rounded-md bg-roast">
+        <div className="flex aspect-[2/1] items-center justify-center rounded-md bg-roast md:aspect-square">
           <img src={mark.url} alt="HOLM logo" className="w-1/2" loading="lazy" width={400} height={300} />
         </div>
         <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">
